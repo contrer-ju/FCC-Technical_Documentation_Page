@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 
 #menu-title {
@@ -15,6 +15,17 @@ body {
   position: sticky;
   top: 0;
   margin: 0.5px;
+}
+
+.flex-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 1000px) {
+  .flex-menu {
+    flex-direction: column;
+  }
 }
 
 .bottom {
@@ -38,7 +49,8 @@ body {
 #flex-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-start;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 @media (min-width: 1000px) {
@@ -49,15 +61,49 @@ body {
 }
 
 .flex-item1 {
-  flex: 0 1 5%;
-  justify-self: center;
+  flex-basis: 5%;
   align-self: stretch;
 }
 
 .flex-item2 {
-  flex: 0 1 94%;
-  justify-self: end;
+  flex-basis: 0.5%;
+}
+
+.flex-item3 {
+  flex-basis: 94%;
   align-self: stretch;
+}
+
+#grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 5% 95%;
+  grid-row-gap: 10px;
+  grid-template-areas: 
+  "menu"
+  "content";
+}
+
+@media (min-width: 1000px) {
+  #grid-container {
+    grid-template-columns: 10% 90%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "menu content";
+  }
+}
+
+.grid-item1 {
+  position: static;
+  grid-area: menu;
+  justify-self: center;
+  align-self: start;
+}
+
+.grid-item2 {
+  grid-area: content;
+  justify-self: center;
+  align-self: center;
 }
 
 .code-class {
@@ -68,4 +114,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.main-section {
+  width: 92vw;
+}
+
+p {
+  text-align: justify;
 }
